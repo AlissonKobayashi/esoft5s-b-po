@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="../../styles.css" />
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./index.js"></script>
   </head>
   <body>
     <header id="header">
@@ -29,35 +28,8 @@
       <p><a href="#header">Voltar para o topo</a></p>
       <p><a href="mailto:contato@squirtlepage.com">Contato via e-mail</a></p>
       <p><a href="tel:+5555555555">Telefone: (55) 5555-5555</a></p>
-      <p id="acesso_log"></p>
     </footer>
+    <script src="./index.js"></script>
+    <script src="../../footer-counter.js"></script>
   </body>
-  <script>
-     
-    function atualizarContadorVisitas() {
-    let contador = JSON.parse(localStorage.getItem('contadorVisitas'));
-    
-    if (!contador) {
-        contador = {
-            count: 1,
-            lastVisit: new Date().toLocaleString('pt-BR', { day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' })
-        };
-    } else {
-        contador.count++;
-        contador.lastVisit = new Date().toLocaleString('pt-BR', { day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' }); 
-    }
-    
-    localStorage.setItem('contadorVisitas', JSON.stringify(contador));
-    
-  
-    const footer = document.querySelector('footer');
-    const contadorElement = document.createElement('p');
-    contadorElement.textContent = `Esta página foi visitada ${contador.count} vezes. A última visita foi: ${contador.lastVisit}`;
-    footer.appendChild(contadorElement);
-}
-
-atualizarContadorVisitas();
-
-
-  </script>
 </html>
